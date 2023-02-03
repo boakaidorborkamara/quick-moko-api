@@ -1,5 +1,5 @@
 const apiDocumentation = (req,res)=>{
-    res.res("API Documentation")
+    res.send("API Documentation")
 }
 
 
