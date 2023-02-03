@@ -1,5 +1,6 @@
 const express = require('express');
-const db_config = require('./db_config/db_config');
+const db = require('./config/db_config');
+
 
 //define port
 const PORT = process.env.PORT || 3000;
@@ -7,7 +8,8 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 
-const index_routers = require('./routers/index_router');
+//ROUTES
+const index_routers = require('./api/routes/index_router');
 
 
 app.use(index_routers);
