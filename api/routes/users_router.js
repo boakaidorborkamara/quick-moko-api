@@ -1,14 +1,14 @@
 const express = require('express');
-const users_table = require('../models/users');
+// const db = require('../../config/db_config');
 const router = express.Router();
 
 
 // const usersController = require('../controllers/indexController')
 
 
-//define route for the homepage
-router.get('/api/v1/users', (req, res)=>{
-
+//display all clients on GET
+router.get('/api/v1/clients', (req, res)=>{
+    res.send("Sending all clients");
 })
 
 
