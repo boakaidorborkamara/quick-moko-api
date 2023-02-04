@@ -19,7 +19,7 @@ const LoanTransaction = async (orm, sequelize, data_type)=>{
         type: data_type.STRING,
         allowNull: false
       },
-      cliend_id: { //foreign_key
+      client_id: { //foreign_key
         type: data_type.STRING,
         allowNull: false
       }
