@@ -45,7 +45,7 @@ LoanTransactionsModel(Sequelize,sequelize, DataTypes);
 })();
 
 
-module.exports.database_config = sequelize;
+module.exports = {ClientsModel}
 
 
 

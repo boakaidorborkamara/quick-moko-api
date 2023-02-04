@@ -10,11 +10,11 @@ const app = express();
 
 //ROUTES
 const index_routers = require('./api/routes/index_router');
-const user_routers = require('./api/routes/users_router');
+const client_routers = require('./api/routes/clients_router');
 
 
 app.use(index_routers);
-app.use(user_routers);
+app.use(client_routers);
 
 
 app.listen(PORT, ()=>{
