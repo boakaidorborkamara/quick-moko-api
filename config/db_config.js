@@ -6,6 +6,7 @@ const {DataTypes} = require('sequelize');
 const ClientsModel = require('../api/models/clients');
 const VendorsModel = require('../api/models/vendors');
 const EmployeesModel = require('../api/models/employees');
+const LoanTransactionsModel = require('../api/models/loan_transtions');
 
 
 
@@ -31,6 +32,8 @@ const sequelize = new Sequelize({
 ClientsModel(Sequelize,sequelize, DataTypes);
 VendorsModel(Sequelize,sequelize, DataTypes);
 EmployeesModel(Sequelize,sequelize, DataTypes);
+LoanTransactionsModel(Sequelize,sequelize, DataTypes);
+
 
 
 
