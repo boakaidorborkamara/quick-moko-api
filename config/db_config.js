@@ -4,6 +4,7 @@ const {DataTypes} = require('sequelize');
 
 // import models 
 const ClientsModel = require('../api/models/clients');
+const VendorsModel = require('../api/models/vendors');
 
 
 //create a new instance of sequelize and connect to database
@@ -25,7 +26,8 @@ const sequelize = new Sequelize({
 
 
 //create tables from models
-ClientsModel(sequelize, DataTypes);
+ClientsModel(Sequelize,sequelize, DataTypes);
+VendorsModel(Sequelize,sequelize, DataTypes);
 
 
 // synchronize all of the above models 

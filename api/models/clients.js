@@ -1,9 +1,9 @@
-const Client = async (sequelize, data_type)=>{
+const Client = async (orm, sequelize, data_type)=>{
   await sequelize.define('clients', {
     // Model attributes
     id: {
-      type: Sequelize.UUID,
-      defaultValue: Sequelize.UUIDV4,
+      type: orm.UUID, //require UUID from orm
+      defaultValue: orm.UUIDV4,
       primaryKey: true,
       allowNull: false
     },
@@ -12,7 +12,7 @@ const Client = async (sequelize, data_type)=>{
       allowNull: false
     },
     middle_name: {
-      type: data_type.STRING,
+      type: data_type.STRING, 
     },
     last_name: {
       type: data_type.STRING,
@@ -39,6 +39,10 @@ const Client = async (sequelize, data_type)=>{
       allowNull: false
     },
     employment_letter: {
+      type: data_type.STRING,
+      allowNull: false
+    },
+    image: {
       type: data_type.STRING,
       allowNull: false
     },
@@ -113,10 +117,6 @@ const Client = async (sequelize, data_type)=>{
   });
 
 }
-
-
-
-
 
 
 
