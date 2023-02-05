@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-// bring controller files into this file 
+// bring controller codes into this file 
 const clientsController = require('../controllers/clientController')
 
 

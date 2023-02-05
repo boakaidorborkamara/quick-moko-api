@@ -5,9 +5,10 @@ const db = require('./config/db_config');
 //define port
 const PORT = process.env.PORT || 3000;
 
-const app = express();
-app.use(express.urlencoded({extended:false})); //enable parsing of url payload
 
+const app = express();
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 
 //ROUTES

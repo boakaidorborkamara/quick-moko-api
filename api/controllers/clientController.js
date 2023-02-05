@@ -17,7 +17,34 @@ const client_create = (req, res)=>{
     console.log(new_client_details);
 
     const client = ClientsModel.create({
-        first_name:"Boakai"
+        first_name:new_client_details.first_name,
+        middle_name: new_client_details.middle_name,
+        last_name: new_client_details.last_name,
+        date_of_birth: new_client_details.date_of_birth,
+        salary_deposit_to_mobile_money: new_client_details.salary_deposit_to_mobile_money,
+        monthly_salary: new_client_details.monthly_salary,
+        home_address: new_client_details.home_address,
+        employment_contract:new_client_details.employment_contract,
+        employment_letter: new_client_details.employment_letter,
+        image: new_client_details.image,
+        national_id: new_client_details.national_id,
+        national_identifcation_number: new_client_details.national_identifcation_number,
+        gurantor_fullname: new_client_details.gurantor_fullname,
+        gurantor_contact_number:new_client_details.gurantor_contact_number,
+        gurantor_home_address: new_client_details.gurantor_home_address,
+        gurantor_relation_to_creditor: new_client_details.gurantor_relation_to_creditor,
+        mou_from_gurantor:new_client_details.mou_from_gurantor,
+        gurantor_government_issued_id: new_client_details.gurantor_government_issued_id,
+        hr_fullname: new_client_details.hr_fullname,
+        hr_contact_number: new_client_details.hr_contact_number,
+        employer_name: new_client_details.employer_name,
+        employer_address: new_client_details.employer_address,
+        loan_limit: new_client_details.loan_limit,
+        validation_process_complete: new_client_details.validation_process_complete,
+        pass_validation: new_client_details.pass_validation,
+        terms_and_condition_accepted: new_client_details.terms_and_condition_accepted,
+
+
     });
 
     // res.status(201).send({code: 0, message: "Client Added"});

@@ -50,11 +50,11 @@ const Client = (sequelize)=>{
       type: DataTypes.STRING,
       allowNull: false
     },
-    government_issued_id: {
+    national_id: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    id_card_type: {
+    national_identifcation_number: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -113,10 +113,6 @@ const Client = (sequelize)=>{
     terms_and_condition_accepted: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    lastName: {
-      type: DataTypes.STRING
-      // allowNull defaults to true
     }
   });
 
