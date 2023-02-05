@@ -2,7 +2,7 @@ const {Sequelize} = require('sequelize');
 
 
 // include client model
-const ClientsModel = require('../../config/db_config').clients_table;
+const db = require('../../config/db_config').clients_table;
 
 
 //contain information for response after user implement a specific CRUD action
@@ -16,7 +16,7 @@ const client_create = (req, res)=>{
     let new_client_details = req.body;
     console.log(new_client_details);
 
-    const client = ClientsModel.create({
+    const client = db.create({
         first_name:new_client_details.first_name,
         middle_name: new_client_details.middle_name,
         last_name: new_client_details.last_name,
@@ -47,17 +47,16 @@ const client_create = (req, res)=>{
 
     });
 
-    // res.status(201).send({code: 0, message: "Client Added"});
-    return res.send("working");
+    res.status(201).send({code: 0, message: "Client Added"});
 
 }
 
 
 // // Handle diplay of client on GET
-// const client_list = async (req,res)=>{
-//     const clients = await db.findAll();
-//     res.status(200).send({code: 200, families});
-// }
+const client_list = async (req,res)=>{
+    const clients = await db.findAll();
+    res.status(200).send({code: 200, families});
+}
 
 
 // //Handle display of specific family on GET
