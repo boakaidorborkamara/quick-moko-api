@@ -30,13 +30,11 @@ const sequelize = new Sequelize({
 
 //create database tables from models
 let clients_table = ClientsModel(sequelize);
+let loan_transactions_table = LoanTransactionsModel(sequelize);
 VendorsModel(Sequelize,sequelize, DataTypes);
 EmployeesModel(Sequelize,sequelize, DataTypes);
-LoanTransactionsModel(Sequelize,sequelize, DataTypes);
 
-
- 
- 
+  
 // synchronize all of the above models 
 (async ()=>{
     await sequelize.sync();
@@ -45,7 +43,10 @@ LoanTransactionsModel(Sequelize,sequelize, DataTypes);
 })();
 
 
-module.exports = {clients_table}
+module.exports = {
+  clients_table,
+  loan_transactions_table
+}
 
 
 
