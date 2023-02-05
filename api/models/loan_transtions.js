@@ -11,6 +11,7 @@ const LoanTransaction = async (sequelize)=>{
       },
       date: {
         type: DataTypes.DATE,
+        defaultValue: Sequelize.NOW,
         allowNull: false
       },
       amount: {
@@ -23,7 +24,7 @@ const LoanTransaction = async (sequelize)=>{
       },
       client_id: { //foreign_key
         type: DataTypes.STRING,
-        allowNull: false
+        // allowNull: false
       }
     });
   
