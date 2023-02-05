@@ -116,29 +116,30 @@ const client_edit = async (req, res)=>{
 }
 
 
-// //Handle delete of specific family details on DELETE
-// const family_delete = async (req, res)=>{
+//Handle delete of specific client on DELETE
+const client_delete = async (req, res)=>{
     
-//     // id for person info we want to edit 
-//     let family_id = req.params.id;
+    // id for person info we want to edit 
+    let client_id = req.params.id;
 
-//     await db.Family.destroy({
-//         where: {
-//             id: family_id
-//         }
-//     });
+    await db.destroy({
+        where: {
+            id: client_id
+        }
+    });
 
-//     // modify res_obj 
-//     res_obj.code = 204;
-//     res_obj.message = "Success, family deleted.";
+    // modify res_obj 
+    res_obj.code = 0;
+    res_obj.message = "Success, client deleted.";
 
-//     res.send(JSON.stringify(res_obj));
-// }
+    res.status(200).send(JSON.stringify(res_obj));
+}
 
 
 module.exports = {
     client_create,
     client_list,
     client_details,
-    client_edit
+    client_edit,
+    client_delete
 }

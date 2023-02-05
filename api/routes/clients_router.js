@@ -18,5 +18,8 @@ router.get('/api/v1/clients/:id', clientsController.client_details);
 // Handle edit of specific client details on PUT 
 router.put('/api/v1/clients/:id', clientsController.client_edit);
 
+//Handle delete of specific client on DELETE
+router.delete('/api/v1/clients/:id', clientsController.client_delete);
+
 
 module.exports = router;
