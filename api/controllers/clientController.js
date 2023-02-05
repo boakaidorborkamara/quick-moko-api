@@ -90,30 +90,30 @@ const client_details = async (req, res)=>{
 }
 
 
-// // Handle edit of specific person details on PUT 
-// const family_edit = async (req, res)=>{
+// Handle edit of specific client details on PUT 
+const client_edit = async (req, res)=>{
 
-//     // id for person info we want to edit 
-//     let family_id = req.params.id;
+    // id for client who info we want to edit 
+    let client_id = req.params.id;
 
-//     //new info for modification
-//     let new_info = req.body;
-//     console.log(new_info);
-
-
-//     await db.Family.update(new_info,{
-//         where:{
-//             id:family_id
-//         }
-//     });
+    //new info for modification
+    let new_info = req.body;
+    console.log(new_info);
 
 
-//     // modify request obj 
-//     res_obj.code = 200;
-//     res_obj.message = "Family modified"
+    await db.update(new_info,{
+        where:{
+            id:client_id
+        }
+    });
 
-//     res.status(200).send(JSON.stringify(res_obj));
-// }
+
+    // modify request obj 
+    res_obj.code = 0;
+    res_obj.message = "Client modified"
+
+    res.status(200).send(JSON.stringify(res_obj));
+}
 
 
 // //Handle delete of specific family details on DELETE
@@ -139,5 +139,6 @@ const client_details = async (req, res)=>{
 module.exports = {
     client_create,
     client_list,
-    client_details
+    client_details,
+    client_edit
 }

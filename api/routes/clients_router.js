@@ -15,5 +15,8 @@ router.get('/api/v1/clients', clientsController.client_list);
 //Handle display of details for specific client on GET
 router.get('/api/v1/clients/:id', clientsController.client_details);
 
+// Handle edit of specific client details on PUT 
+router.put('/api/v1/clients/:id', clientsController.client_edit);
+
 
 module.exports = router;
