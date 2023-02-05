@@ -10,13 +10,13 @@ let res_obj = {code: 0, message: "Ok"};
 
 
 // Handle creation of client on POST
-const client_create = (req, res)=>{
+const client_create = async (req, res)=>{
 
     // data from frontend
     let new_client_details = req.body;
     console.log(new_client_details);
 
-    const client = db.create({
+    const client = await db.create({
         first_name:new_client_details.first_name,
         middle_name: new_client_details.middle_name,
         last_name: new_client_details.last_name,
@@ -55,7 +55,7 @@ const client_create = (req, res)=>{
 // // Handle diplay of client on GET
 const client_list = async (req,res)=>{
     const clients = await db.findAll();
-    res.status(200).send({code: 200, families});
+    res.status(200).send({code: 0, clients}); 
 }
 
 
@@ -134,5 +134,6 @@ const client_list = async (req,res)=>{
 
 
 module.exports = {
-    client_create
+    client_create,
+    client_list
 }
