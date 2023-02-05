@@ -12,6 +12,8 @@ router.post('/api/v1/clients', clientsController.client_create);
 //get all clients
 router.get('/api/v1/clients', clientsController.client_list);
 
+//Handle display of details for specific client on GET
+router.get('/api/v1/clients/:id', clientsController.client_details);
 
 
 module.exports = router;

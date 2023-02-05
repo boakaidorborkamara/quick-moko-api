@@ -59,32 +59,35 @@ const client_list = async (req,res)=>{
 }
 
 
-// //Handle display of specific family on GET
-// const family_details = async (req, res)=>{
+//Handle display of specific client on GET
+const client_details = async (req, res)=>{
 
-//     // id of family detail you want to see 
-//     let family_id = req.params.id;
-
+    // id for the client that detail you want to see 
+    let client_id = req.params.id;
+    console.log(client_id);
+     
     
-//     const family = await db.Family.findByPk(family_id);
-//     // check if id is invalid 
-//     if (family === null) {
+    const client = await db.findByPk(client_id);
+    // check if id is invalid 
+    if (client === null) {
 
-//         // modify res obj 
-//         res_obj.code = 400;
-//         res_obj.message = "Not a valid family";
+        // modify res obj 
+        res_obj.code = 1;
+        res_obj.message = "Client not valid";
 
-//         res.status(400).send(res_obj);
+        res.status(400).send(res_obj);
 
-//     } else {
+    } else {
         
-//         // modify res obj 
-//         res_obj.code = 200;
-//         res_obj.message = family;
+        // modify res obj 
+        res_obj.code = 0;
+        res_obj.message = client;
 
-//         res.status(200).send(JSON.stringify(res_obj));
-//     }
-// }
+        res.status(200).send(JSON.stringify(res_obj));
+    }
+
+    res.send(JSON.stringify(client_id));
+}
 
 
 // // Handle edit of specific person details on PUT 
@@ -135,5 +138,6 @@ const client_list = async (req,res)=>{
 
 module.exports = {
     client_create,
-    client_list
+    client_list,
+    client_details
 }
