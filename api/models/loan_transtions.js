@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes, DATE } = require('sequelize');
 
-const LoanTransaction = async (sequelize)=>{
-    await sequelize.define('loan_transactions', {
+const LoanTransaction = (sequelize)=>{
+    return sequelize.define('loan_transactions', {
       // Model attributes
       id: {
         type: Sequelize.UUID, //require UUID from orm

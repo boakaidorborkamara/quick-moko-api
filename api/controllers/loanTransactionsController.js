@@ -2,7 +2,7 @@ const {Sequelize} = require('sequelize');
 
 
 // include loan transtactions model
-const db = require('../../config/db_config').loan_transactions_table;
+const db_loan_transaction_table = require('../../config/db_config').loan_transactions_table;
 
 
 //contain information for response after user implement a specific CRUD action
@@ -10,19 +10,19 @@ let res_obj = {code: 0, message: "Ok"};
 
 
 // Handle creation of loan transaction on POST
-const client_create = async (req, res)=>{
+const loan_transtion_create = async (req, res)=>{
 
     // data from frontend
     let new_client_details = req.body;
     console.log(new_client_details);
 
-    const client = await db.create({
+    const client = await db_loan_transaction_table.create({
         amount: "700",
         purpose: "Sugery"      
+    }); 
 
-    });
-
-    res.status(201).send({code: 0, message: "Client Added"});
+    res.send("Working")
+    // res.status(201).send({code: 0, message: "Client Added"});
 
 }
 
@@ -113,9 +113,5 @@ const client_delete = async (req, res)=>{
 
 // export controllers 
 module.exports = {
-    client_create,
-    client_list,
-    client_details,
-    client_edit,
-    client_delete
+    loan_transtion_create
 }
