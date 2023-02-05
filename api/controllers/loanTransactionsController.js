@@ -2,7 +2,7 @@ const {Sequelize} = require('sequelize');
 
 
 // include loan transtactions model
-const db_loan_transaction_table = require('../../config/db_config').loan_transactions_table;
+const db = require('../../config/db_config').loan_transactions_table;
 
 
 //contain information for response after user implement a specific CRUD action
@@ -13,16 +13,16 @@ let res_obj = {code: 0, message: "Ok"};
 const loan_transtion_create = async (req, res)=>{
 
     // data from frontend
-    let new_client_details = req.body;
-    console.log(new_client_details);
+    let new_loan_transaction_details = req.body;
+    console.log(new_loan_transaction_details);
 
-    const client = await db_loan_transaction_table.create({
-        amount: "700",
-        purpose: "Sugery"      
+    // save data in db 
+    const client = await db.create({
+        amount: new_loan_transaction_details.amount,
+        purpose: new_loan_transaction_details.purpose      
     }); 
 
-    res.send("Working")
-    // res.status(201).send({code: 0, message: "Client Added"});
+    res.status(201).send({code: 0, message: "Loan transaction record added"});
 
 }
 
