@@ -6,6 +6,8 @@ const db = require('./config/db_config');
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+app.use(express.urlencoded({extended:false})); //enable parsing of url payload
+
 
 
 //ROUTES

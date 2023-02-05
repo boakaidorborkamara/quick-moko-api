@@ -1,5 +1,5 @@
 const {Sequelize} = require('sequelize');
-const {DataTypes} = require('sequelize');
+const DataTypes = require('sequelize').DataTypes;
 
 
 // import models 
@@ -28,15 +28,15 @@ const sequelize = new Sequelize({
 })();
 
 
-//create tables from models
-ClientsModel(Sequelize,sequelize, DataTypes);
+//create database tables from models
+let clients_table = ClientsModel(sequelize);
 VendorsModel(Sequelize,sequelize, DataTypes);
 EmployeesModel(Sequelize,sequelize, DataTypes);
 LoanTransactionsModel(Sequelize,sequelize, DataTypes);
 
 
-
-
+ 
+ 
 // synchronize all of the above models 
 (async ()=>{
     await sequelize.sync({ force: true });
@@ -45,7 +45,7 @@ LoanTransactionsModel(Sequelize,sequelize, DataTypes);
 })();
 
 
-module.exports = {ClientsModel}
+module.exports = {clients_table}
 
 
 

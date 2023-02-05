@@ -1,18 +1,23 @@
-const {ClientsModel} = require('../../config/db_config');
+const {Sequelize} = require('sequelize');
 
 
+// include client model
+const ClientsModel = require('../../config/db_config').clients_table;
+
+
+//contain information for response after user implement a specific CRUD action
 let res_obj = {code: 0, message: "Ok"};
 
 
 // Handle creation of client on POST
-const client_create = async (req, res)=>{
+const client_create = (req, res)=>{
 
     // data from frontend
     let new_client_details = req.body;
     console.log(new_client_details);
 
-    const client = await ClientsModel.create({
-        
+    const client = ClientsModel.create({
+        first_name:"Boakai"
     });
 
     // res.status(201).send({code: 0, message: "Client Added"});
