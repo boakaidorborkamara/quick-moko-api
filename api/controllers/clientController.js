@@ -136,6 +136,7 @@ const client_delete = async (req, res)=>{
 }
 
 
+// export controllers 
 module.exports = {
     client_create,
     client_list,

@@ -1,26 +1,28 @@
-const LoanTransaction = async (orm, sequelize, data_type)=>{
+const { Sequelize, DataTypes, DATE } = require('sequelize');
+
+const LoanTransaction = async (sequelize)=>{
     await sequelize.define('loan_transactions', {
       // Model attributes
       id: {
-        type: orm.UUID, //require UUID from orm
-        defaultValue: orm.UUIDV4,
+        type: Sequelize.UUID, //require UUID from orm
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
         allowNull: false
       },
       date: {
-        type: data_type.DATE,
+        type: DataTypes.DATE,
         allowNull: false
       },
       amount: {
-        type: data_type.STRING, 
+        type: DataTypes.STRING, 
         allowNull: false
       },
       purpose: {
-        type: data_type.STRING,
+        type: DataTypes.STRING,
         allowNull: false
       },
       client_id: { //foreign_key
-        type: data_type.STRING,
+        type: DataTypes.STRING,
         allowNull: false
       }
     });
