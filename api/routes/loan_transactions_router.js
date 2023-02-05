@@ -6,11 +6,11 @@ const router = express.Router();
 const loanTransactionController = require('../controllers/loanTransactionsController')
 
 
-//create new client on post
-router.post('/api/v1/loan_transtions', loanTransactionController.loan_transtion_create);
+//create new loan transaction record on post
+router.post('/api/v1/loan_transactions', loanTransactionController.loan_transtion_create);
 
-//get all clients
-// router.get('/api/v1/clients', clientsController.client_list);
+//get all loan transactions
+router.get('/api/v1/loan_transactions', loanTransactionController.loan_transaction_list);
 
 //Handle display of details for specific client on GET
 // router.get('/api/v1/clients/:id', clientsController.client_details);

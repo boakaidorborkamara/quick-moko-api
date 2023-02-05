@@ -27,10 +27,10 @@ const loan_transtion_create = async (req, res)=>{
 }
 
 
-// // Handle diplay of client on GET
-const client_list = async (req,res)=>{
-    const clients = await db.findAll();
-    res.status(200).send({code: 0, clients}); 
+// Handle diplay of loan transaction record on GET
+const loan_transaction_list = async (req,res)=>{
+    const loan_transaction = await db.findAll();
+    res.status(200).send({code: 0, loan_transaction}); // send user response 
 }
 
 
@@ -113,5 +113,6 @@ const client_delete = async (req, res)=>{
 
 // export controllers 
 module.exports = {
-    loan_transtion_create
+    loan_transtion_create,
+    loan_transaction_list
 }
