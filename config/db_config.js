@@ -34,11 +34,9 @@ let clients_table = ClientsModel(sequelize);
 let loan_transactions_table = LoanTransactionsModel(sequelize);
 let payment_transactions_table = PaymentTransactionsModel(sequelize);
 let vendors_table = VendorsModel(sequelize);
+let employee_table = EmployeesModel(sequelize);
 
 
-EmployeesModel(Sequelize,sequelize, DataTypes);
-
-  
 // synchronize all of the above models 
 (async ()=>{
     await sequelize.sync();
@@ -51,7 +49,8 @@ module.exports = {
   clients_table,
   loan_transactions_table,
   payment_transactions_table,
-  vendors_table
+  vendors_table,
+  employee_table
 }
 
 
