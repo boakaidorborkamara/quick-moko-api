@@ -31,6 +31,4 @@ const PaymentTransaction = (sequelize)=>{
   }
   
   
- 
-  
   module.exports = PaymentTransaction;

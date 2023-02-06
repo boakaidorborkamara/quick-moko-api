@@ -40,8 +40,87 @@ const vendor_list = async (req,res)=>{
 }
 
 
+//Handle display of specific vendor on GET
+const vendor_details = async (req, res)=>{
+
+    // id for the vendor that detail you want to see 
+    let vendor_id = req.params.id;
+    console.log(vendor_id);
+     
+    
+    const vendor = await db.findByPk(vendor_id);
+    // check if id is invalid 
+    if (vendor === null) {
+
+        // modify res obj 
+        res_obj.code = 1;
+        res_obj.message = "Vendor not valid";
+
+        res.status(400).send(res_obj);
+
+    } else {
+        
+        // modify res obj 
+        res_obj.code = 0;
+        res_obj.message = vendor;
+
+        res.status(200).send(JSON.stringify(res_obj));
+    }
+
+}
+
+
+// Handle edit of specific vendor details on PUT 
+const vendor_edit = async (req, res)=>{
+
+    // id for vendor info we want to edit 
+    let vendor_id = req.params.id;
+
+    //new info for modification
+    let new_info = req.body;
+    console.log(new_info);
+
+
+    await db.update(new_info,{
+        where:{
+            id:vendor_id
+        }
+    });
+
+
+    // modify request obj 
+    res_obj.code = 0;
+    res_obj.message = "Vendor modified"
+
+    res.status(200).send(JSON.stringify(res_obj));
+}
+
+
+//Handle delete of specific vendor on DELETE
+const vendor_delete = async (req, res)=>{
+    
+    // id for vendor info we want to edit 
+    let vendor_id = req.params.id;
+
+    await db.destroy({
+        where: {
+            id: vendor_id
+        }
+    });
+
+    // modify res_obj 
+    res_obj.code = 0;
+    res_obj.message = "Success, vendor deleted.";
+
+    res.status(200).send(JSON.stringify(res_obj));
+}
+
+
 // export controllers 
 module.exports = {
     vendor_create,
-    vendor_list
+    vendor_list,
+    vendor_details,
+    vendor_edit,
+    vendor_delete
 }
