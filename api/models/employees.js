@@ -46,7 +46,7 @@ const Employee = (sequelize)=>{
       },
       vendor_id: { //foreign key
         type: DataTypes.STRING,
-        allowNull: true
+        // allowNull: true
       }
     });
   

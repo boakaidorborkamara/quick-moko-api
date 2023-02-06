@@ -18,7 +18,15 @@ const employee_create = async (req, res)=>{
 
     // save data in db 
     const vendor = await db.create({
-        
+        first_name: new_employee_details.first_name,
+        middle_name: new_employee_details.middle_name,
+        last_name: new_employee_details.last_name, 
+        position: new_employee_details.position,
+        department: new_employee_details.department,
+        cash_amount: new_employee_details.cash_amount,
+        purpose: new_employee_details.purpose,
+        logo: new_employee_details.log,
+        mobile_money_number: new_employee_details.mobile_money_number
             
     }); 
 
