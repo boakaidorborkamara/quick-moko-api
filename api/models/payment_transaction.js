@@ -11,7 +11,8 @@ const PaymentTransaction = (sequelize)=>{
       },
       date: {
         type: DataTypes.DATE,
-        allowNull: false
+        defaultValue: Sequelize.NOW,
+        allowNull: false,
       },
       amount: {
         type: DataTypes.STRING, 

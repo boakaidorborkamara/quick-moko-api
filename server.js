@@ -15,11 +15,14 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 const index_routers = require('./api/routes/index_router');
 const client_routers = require('./api/routes/clients_router');
 const loan_transactions_router = require('./api/routes/loan_transactions_router');
+const payment_transactions_router = require('./api/routes/payment_transactions_router');
+
 
 
 app.use(index_routers);
 app.use(client_routers);
 app.use(loan_transactions_router);
+app.use(payment_transactions_router);
 
 
 app.listen(PORT, ()=>{
