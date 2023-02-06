@@ -18,14 +18,14 @@ const vendor_create = async (req, res)=>{
 
     // save data in db 
     const vendor = await db.create({
-        name:"JFK Hospital",
-        logo: "link to logo",
-        address: "Sinkor" ,
-        email: "jfk@gmail.com",
-        contact_number: "0334223",
-        mobile_money_number: "9922272",
-        password: "password232" ,
-             
+        name:new_vendor_details.name,
+        logo: new_vendor_details.logo, 
+        address: new_vendor_details.address ,
+        email: new_vendor_details.email, 
+        contact_number: new_vendor_details.contact_number,
+        mobile_money_number: new_vendor_details.mobile_money_number,
+        password: new_vendor_details.password ,
+            
     }); 
 
     res.status(201).send({code: 0, message: "Loan transaction record added"});

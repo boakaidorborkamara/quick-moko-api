@@ -33,7 +33,7 @@ const sequelize = new Sequelize({
 let clients_table = ClientsModel(sequelize);
 let loan_transactions_table = LoanTransactionsModel(sequelize);
 let payment_transactions_table = PaymentTransactionsModel(sequelize);
-let vendors_table = VendorsTransactionsModel(sequelize);
+let vendors_table = VendorsModel(sequelize);
 
 
 EmployeesModel(Sequelize,sequelize, DataTypes);
