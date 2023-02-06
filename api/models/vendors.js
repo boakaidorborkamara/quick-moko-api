@@ -1,41 +1,43 @@
-const Vendor = async (orm, sequelize, data_type)=>{
-    await sequelize.define('vendors', {
+const { Sequelize, DataTypes, DATE } = require('sequelize');
+
+const Vendor = (sequelize)=>{
+    return sequelize.define('vendors', {
       // Model attributes
       id: {
-        type: orm.UUID, //require UUID from orm
-        defaultValue: orm.UUIDV4,
+        type: Sequelize.UUID, //require UUID from orm
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
         allowNull: false
       },
       name: {
-        type: data_type.STRING,
+        type: DataTypes.STRING,
         allowNull: false
       },
       logo: {
-        type: data_type.STRING,
+        type: DataTypes.STRING,
       },
       address: {
-        type: data_type.STRING, 
+        type: DataTypes.STRING, 
         allowNull: false
       },
       email: {
-        type: data_type.STRING,
+        type: DataTypes.STRING,
         allowNull: false
       },
       contact_number: {
-        type: data_type.STRING,
+        type: DataTypes.STRING,
         allowNull: false
       },
       mobile_money_number: {
-        type: data_type.STRING,
+        type: DataTypes.STRING,
         allowNull: false
       },
       password: {
-        type: data_type.STRING,
+        type: DataTypes.STRING,
         allowNull: false
       },
       government_issued_id: {
-        type: data_type.STRING,
+        type: DataTypes.STRING,
         allowNull: false
       }
     });
