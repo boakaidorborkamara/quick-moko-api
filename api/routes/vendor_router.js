@@ -6,12 +6,12 @@ const router = express.Router();
 const vendorController = require('../controllers/vendorsController')
 
 
-//create new loan transaction record on post
+//create new vendor on post
 router.post('/api/v1/vendors', vendorController.vendor_create);
 
 
-//get all loan transactions
-// router.get('/api/v1/loan_transactions', loanTransactionController.loan_transaction_list);
+//get all vendors
+router.get('/api/v1/vendors', vendorController.vendor_list);
 
 
 

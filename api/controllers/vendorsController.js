@@ -33,15 +33,15 @@ const vendor_create = async (req, res)=>{
 }
 
 
-// Handle diplay of loan transaction record on GET
-// const loan_transaction_list = async (req,res)=>{
-//     const loan_transaction = await db.findAll();
-//     res.status(200).send({code: 0, loan_transaction}); // send user response 
-// }
+// Handle diplay of vendors on GET
+const vendor_list = async (req,res)=>{
+    const vendor = await db.findAll();
+    res.status(200).send({code: 0, vendor}); // send user response 
+}
 
 
 // export controllers 
 module.exports = {
     vendor_create,
-    // loan_transaction_list
+    vendor_list
 }
