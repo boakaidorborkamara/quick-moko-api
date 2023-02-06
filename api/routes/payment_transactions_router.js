@@ -11,7 +11,7 @@ router.post('/api/v1/payment_transactions', paymentTransactionController.payment
 
 
 //get all loan transactions
-// router.get('/api/v1/loan_transactions', loanTransactionController.loan_transaction_list);
+router.get('/api/v1/payment_transactions', paymentTransactionController.payment_transaction_list);
 
 
 

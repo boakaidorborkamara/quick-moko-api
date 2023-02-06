@@ -18,7 +18,7 @@ const payment_transtion_create = async (req, res)=>{
 
     // save data in db 
     const payment_transaction = await db.create({
-              amount: "300"
+              amount: new_payment_transaction_details.amount
     }); 
 
     res.status(201).send({code: 0, message: "Payment transaction record added"});
@@ -26,15 +26,15 @@ const payment_transtion_create = async (req, res)=>{
 }
 
 
-// Handle diplay of loan transaction record on GET
-const loan_transaction_list = async (req,res)=>{
-    const loan_transaction = await db.findAll();
-    res.status(200).send({code: 0, loan_transaction}); // send user response 
+// Handle diplay of payment transaction record on GET
+const payment_transaction_list = async (req,res)=>{
+    const payment_transaction = await db.findAll();
+    res.status(200).send({code: 0, payment_transaction}); // send user response 
 }
 
 
 // export controllers 
 module.exports = {
     payment_transtion_create,
-    // loan_transaction_list
+    payment_transaction_list
 }
