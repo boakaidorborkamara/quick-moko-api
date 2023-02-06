@@ -4,9 +4,10 @@ const DataTypes = require('sequelize').DataTypes;
 
 // import models 
 const ClientsModel = require('../api/models/clients');
+const LoanTransactionsModel = require('../api/models/loan_transtions');
+const PaymentTransactionsModel = require('../api/models/payment_transaction');
 const VendorsModel = require('../api/models/vendors');
 const EmployeesModel = require('../api/models/employees');
-const LoanTransactionsModel = require('../api/models/loan_transtions');
 
 
 
@@ -31,6 +32,8 @@ const sequelize = new Sequelize({
 //create database tables from models
 let clients_table = ClientsModel(sequelize);
 let loan_transactions_table = LoanTransactionsModel(sequelize);
+let payment_transactions_table = PaymentTransactionsModel(sequelize);
+
 VendorsModel(Sequelize,sequelize, DataTypes);
 EmployeesModel(Sequelize,sequelize, DataTypes);
 
@@ -45,7 +48,8 @@ EmployeesModel(Sequelize,sequelize, DataTypes);
 
 module.exports = {
   clients_table,
-  loan_transactions_table
+  loan_transactions_table,
+  payment_transactions_table
 }
 
 
