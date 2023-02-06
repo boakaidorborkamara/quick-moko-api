@@ -33,8 +33,9 @@ const sequelize = new Sequelize({
 let clients_table = ClientsModel(sequelize);
 let loan_transactions_table = LoanTransactionsModel(sequelize);
 let payment_transactions_table = PaymentTransactionsModel(sequelize);
+let vendors_table = VendorsTransactionsModel(sequelize);
 
-VendorsModel(Sequelize,sequelize, DataTypes);
+
 EmployeesModel(Sequelize,sequelize, DataTypes);
 
   
@@ -49,7 +50,8 @@ EmployeesModel(Sequelize,sequelize, DataTypes);
 module.exports = {
   clients_table,
   loan_transactions_table,
-  payment_transactions_table
+  payment_transactions_table,
+  vendors_table
 }
 
 

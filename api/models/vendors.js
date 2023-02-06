@@ -35,10 +35,6 @@ const Vendor = (sequelize)=>{
       password: {
         type: DataTypes.STRING,
         allowNull: false
-      },
-      government_issued_id: {
-        type: DataTypes.STRING,
-        allowNull: false
       }
     });
   
