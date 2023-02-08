@@ -17,7 +17,6 @@ const client_routers = require('./api/routes/clients_router');
 const loan_transactions_router = require('./api/routes/loan_transactions_router');
 const payment_transactions_router = require('./api/routes/payment_transactions_router');
 const vendors_router = require('./api/routes/vendor_router');
-const employees_router = require('./api/routes/employees_router');
 
 
 
@@ -26,7 +25,6 @@ app.use(client_routers);
 app.use(loan_transactions_router);
 app.use(payment_transactions_router);
 app.use(vendors_router);
-app.use(employees_router);
 
 
 app.listen(PORT, ()=>{

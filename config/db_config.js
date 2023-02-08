@@ -7,7 +7,6 @@ const ClientsModel = require('../api/models/clients');
 const LoanTransactionsModel = require('../api/models/loan_transtions');
 const PaymentTransactionsModel = require('../api/models/payment_transaction');
 const VendorsModel = require('../api/models/vendors');
-const EmployeesModel = require('../api/models/employees');
 
 
 
@@ -34,7 +33,6 @@ let clients_table = ClientsModel(sequelize);
 let loan_transactions_table = LoanTransactionsModel(sequelize);
 let payment_transactions_table = PaymentTransactionsModel(sequelize);
 let vendors_table = VendorsModel(sequelize);
-let employee_table = EmployeesModel(sequelize);
 
 
 // synchronize all of the above models 
@@ -50,7 +48,6 @@ module.exports = {
   loan_transactions_table,
   payment_transactions_table,
   vendors_table,
-  employee_table
 }
 
 
