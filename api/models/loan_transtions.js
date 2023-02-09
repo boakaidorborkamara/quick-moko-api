@@ -1,4 +1,6 @@
 const { Sequelize, DataTypes, DATE } = require('sequelize');
+const ClientsModel = require('./clients');
+
 
 const LoanTransaction = (sequelize)=>{
     return sequelize.define('loan_transactions', {
@@ -21,16 +23,10 @@ const LoanTransaction = (sequelize)=>{
       purpose: {
         type: DataTypes.STRING,
         allowNull: false
-      },
-      client_id: { //foreign_key
-        type: DataTypes.STRING,
-        // allowNull: false
       }
     });
   
   }
   
   
- 
-  
-  module.exports = LoanTransaction;
+module.exports = LoanTransaction;

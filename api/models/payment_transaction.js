@@ -17,15 +17,15 @@ const PaymentTransaction = (sequelize)=>{
       amount: {
         type: DataTypes.STRING, 
         allowNull: false
-      },
-      client_id: { //foreign_key
-        type: DataTypes.STRING,
-        allowNull: true
-      },
-      vendor_id: { //foreign_key
-        type: DataTypes.STRING,
-        allowNull: true
       }
+      // client_id: { //foreign_key
+      //   type: DataTypes.STRING,
+      //   allowNull: true
+      // },
+      // vendor_id: { //foreign_key
+      //   type: DataTypes.STRING,
+      //   allowNull: true
+      // }
     });
   
   }
