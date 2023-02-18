@@ -81,6 +81,10 @@ const Client = (sequelize)=>{
       type: DataTypes.STRING,
       allowNull: false
     },
+    hr_address: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     hr_phone_number: {
       type: DataTypes.STRING,
       allowNull: false
