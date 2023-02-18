@@ -70,7 +70,7 @@ const Client = (sequelize)=>{
     
     // employer's info 
     employer_name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, 
       allowNull: false
     },
     employer_address: {
@@ -81,7 +81,7 @@ const Client = (sequelize)=>{
       type: DataTypes.STRING,
       allowNull: false
     },
-    hr_address: {
+    hr_home_address: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -94,33 +94,33 @@ const Client = (sequelize)=>{
     },
     employment_letter: {
       type: DataTypes.STRING,
-    },
+    }, 
     
     // guarantor's info 
     guarantor_fullname: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    gurantor_date_of_birth: {
+    guarantor_date_of_birth: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    gurantor_home_address: {
+    guarantor_home_address: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    gurantor_phone_number: {
+    guarantor_phone_number: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    gurantor_relation_to_creditor: {
+    guarantor_relationship_to_creditor: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    mou_from_gurantor: {
+    mou_from_guarantor: {
       type: DataTypes.STRING
     },
-    gurantor_government_issued_id: {
+    guarantor_government_issued_id: {
       type: DataTypes.STRING
     },
 
