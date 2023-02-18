@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes, DATE } = require('sequelize');
+const { Sequelize, DataTypes, DATE, BOOLEAN } = require('sequelize');
 
 
 // defines a new sequelize model 
@@ -26,70 +26,46 @@ const Client = (sequelize)=>{
       type: DataTypes.DATE,
       allowNull: false
     },
+    home_address: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    contact_number: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    position_at_job: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     salary_deposit_to_mobile_money: {
       type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    mobile_money_number: {
+      type: DataTypes.STRING,
       allowNull: false
     },
     monthly_salary: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    home_address: {
+    currency: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    employment_contract: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    employment_letter: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false
+    profile_image: {
+      type: DataTypes.STRING
     },
     national_id: {
+      type: DataTypes.STRING
+    },
+    NIN_number: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    national_identifcation_number: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    gurantor_fullname: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    gurantor_contact_number: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    gurantor_home_address: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    gurantor_relation_to_creditor: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    mou_from_gurantor: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    gurantor_government_issued_id: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    hr_fullname: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    hr_contact_number: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+    
+    // employer's info 
     employer_name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -98,21 +74,68 @@ const Client = (sequelize)=>{
       type: DataTypes.STRING,
       allowNull: false
     },
-    loan_limit: {
+    hr_fullname: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    hr_phone_number: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    employment_contract: {
+      type: DataTypes.STRING,
+    },
+    employment_letter: {
+      type: DataTypes.STRING,
+    },
+    
+    // guarantor's info 
+    guarantor_fullname: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    gurantor_date_of_birth: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    gurantor_home_address: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    gurantor_phone_number: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    gurantor_relation_to_creditor: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    mou_from_gurantor: {
+      type: DataTypes.STRING
+    },
+    gurantor_government_issued_id: {
+      type: DataTypes.STRING
+    },
+
+    // extra info 
+    loan_limit: {
+      type: DataTypes.STRING,
     },
     validation_process_complete: {
       type: DataTypes.BOOLEAN,
+      defaultValue: false,
       allowNull: false
     },
     pass_validation: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
+      type: DataTypes.BOOLEAN
     },
-    terms_and_condition_accepted: {
-      type: DataTypes.STRING,
-      allowNull: false
+    password_generated:{
+      type:DataTypes.BOOLEAN,
+      defaultValue:false,
+      allowNull:false
+    },
+    password:{
+      type:DataTypes.BOOLEAN
     }
   });
 
