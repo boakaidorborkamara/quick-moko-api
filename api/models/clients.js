@@ -118,6 +118,9 @@ const Client = (sequelize)=>{
     },
 
     // extra info 
+    accept_policy: {
+      type: DataTypes.BOOLEAN
+    },
     loan_limit: {
       type: DataTypes.STRING,
     },
