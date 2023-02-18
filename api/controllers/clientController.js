@@ -32,13 +32,14 @@ const client_create = async (req, res)=>{
     catch(err){
         console.log(err);
 
-         // modify response object
-         res_obj.code = 1;
-         res_obj.message = "We have encounter a server error";
-         JSON.stringify(res_obj);
+        if(err){
+             // modify response object
+            res_obj.code = 1;
+            res_obj.message = "We have encounter a server error";
+            JSON.stringify(res_obj);
  
- 
-         res.status(500).send(res_obj); 
+            res.status(500).send(res_obj); 
+        }
     }
 
 }
