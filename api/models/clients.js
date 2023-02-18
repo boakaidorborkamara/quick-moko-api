@@ -55,7 +55,10 @@ const Client = (sequelize)=>{
       allowNull: false
     },
     profile_image: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      defaultValue: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSNXj1w-ssziSYzpofb8u0Jjwzt4JzQ5PcsJ7FAlRDsevjCyjeVpsfc5hrad5-N6N0oU4&usqp=CAU",
+      allowNull: false
+      
     },
     national_id: {
       type: DataTypes.STRING
