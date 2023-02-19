@@ -44,15 +44,16 @@ const client_create = async (req, res)=>{
             res.status(201).send(res_obj); 
             return;    
         }
+        else{
 
+            // Notify that user exist
+            res_obj.code = 1;
+            res_obj.message = "User already exist, check your NIN Number!";
+            console.log(res_obj)
 
-        // add user to database if user doesn't exist
-        res_obj.code = 1;
-        res_obj.message = "User already exist, check your NIN Number!";
-        console.log(res_obj)
-
-        JSON.stringify(res_obj);
-        res.status(403 ).send(res_obj); 
+            JSON.stringify(res_obj);
+            res.status(403 ).send(res_obj); 
+        }
         
     }
     catch(err){
