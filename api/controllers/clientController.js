@@ -15,18 +15,45 @@ const client_create = async (req, res)=>{
 
     try{
 
-        // data from frontend
+        // get data from frontend
         let new_client_details = req.body;
-        console.log(new_client_details);
+        // console.log(new_client_details);
 
-        const client = await db.create(new_client_details);
+        let NIN_number_from_frontend = new_client_details.NIN_number;
 
+        console.log("FRONTEND NIN NUMBER", NIN_number_from_frontend);
+
+        //check in database if the user already exist
+        let existing_client = await db.findOne({
+            where: {NIN_number: NIN_number_from_frontend}
+        });
+
+        console.log("EXISTING USER", existing_client)
+
+
+        // notify user if the user already exist
+        if(!existing_client){
+
+            // Add new user if not exist 
+            const client = await db.create(new_client_details);
+
+            // modify response object
+            res_obj.code = 0;
+            res_obj.message = "Registration Successful";
+            JSON.stringify(res_obj);
+            res.status(201).send(res_obj); 
+            return; 
+
+            
+        }
+
+        // console.log('Client Exist');
         // modify response object
-        res_obj.message = "Client Added";
+        res_obj.code = 1;
+        res_obj.message = "User already exist, check your NIN Number!";
         JSON.stringify(res_obj);
-
-
-        res.status(201).send(res_obj); 
+        res.status(403 ).send(res_obj); 
+        
 
     }
     catch(err){
