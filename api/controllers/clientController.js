@@ -1,6 +1,7 @@
 const { response } = require('express');
 const {Sequelize} = require('sequelize');
 const {registrationSucessfulSmsNotification} = require('../helper/sendSMS');
+const {generateRegisteredUserPassword} = require('../helper/generatePassword');
 
 
 // include client model
@@ -19,6 +20,11 @@ const client_create = async (req, res)=>{
         // get data from frontend
         let new_client_details = req.body;
 
+        //generate and add password to new client details
+        console.log('running new client pass')
+        let new_client_password = generateRegisteredUserPassword();
+        console.log(console.log(new_client_password));
+        // new_client_details.password = password;
 
         // get NIN number from frontend 
         let NIN_number_from_frontend = new_client_details.NIN_number;
@@ -49,7 +55,7 @@ const client_create = async (req, res)=>{
             // format new user contact number 
             new_user_contact = new_user_contact.substring(1);
             console.log(new_user_contact);
-            registrationSucessfulSmsNotification(new_user_contact, new_user_firstname);
+            // registrationSucessfulSmsNotification(new_user_contact, new_user_firstname);
 
 
             JSON.stringify(res_obj);

@@ -136,17 +136,16 @@ const Client = (sequelize)=>{
       defaultValue: false,
       allowNull: false
     },
-    pass_validation: {
+    passed_validation: {
       type: DataTypes.BOOLEAN
     },
-    password_generated:{
-      type:DataTypes.BOOLEAN,
-      defaultValue:false,
-      allowNull:false
-    },
     password:{
-      type:DataTypes.BOOLEAN
-    }
+      type:DataTypes.STRING
+    },
+    is_admin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }, 
   });
 
 }
