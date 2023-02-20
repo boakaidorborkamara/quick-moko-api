@@ -18,13 +18,14 @@ const client_create = async (req, res)=>{
     try{
 
         // get data from frontend
-        let new_client_details = req.body;
+        let new_client_details = req.body; 
 
         //generate and add password to new client details
         console.log('running new client pass')
-        let new_client_password = generateRegisteredUserPassword();
-        console.log(console.log(new_client_password));
-        // new_client_details.password = password;
+        let new_client_password = await generateRegisteredUserPassword();
+        // console.log(console.log("IN CLIENT CONTROLLER", new_client_password));
+        new_client_details.password = new_client_password;
+        console.log(new_client_details);
 
         // get NIN number from frontend 
         let NIN_number_from_frontend = new_client_details.NIN_number;
