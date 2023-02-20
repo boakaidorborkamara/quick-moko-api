@@ -1,6 +1,6 @@
 const { response } = require('express');
 const {Sequelize} = require('sequelize');
-const {sendSmsNotifications} = require('../helper/sendSMS');
+const {registrationSucessfulSmsNotification} = require('../helper/sendSMS');
 
 
 // include client model
@@ -40,6 +40,16 @@ const client_create = async (req, res)=>{
             res_obj.code = 0;
             res_obj.message = "Registration Successful";
             console.log(res_obj);
+
+            // send registration sucessful sms Notification
+            let new_user_contact = new_client_details.contact_number;
+            
+
+            // format new user contact number 
+            new_user_contact = new_user_contact.substring(1);
+            console.log(new_user_contact);
+            registrationSucessfulSmsNotification(new_user_contact);
+
 
             JSON.stringify(res_obj);
             res.status(201).send(res_obj); 
