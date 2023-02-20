@@ -43,12 +43,13 @@ const client_create = async (req, res)=>{
 
             // send registration sucessful sms Notification
             let new_user_contact = new_client_details.contact_number;
+            let new_user_firstname = new_client_details.first_name;
             
 
             // format new user contact number 
             new_user_contact = new_user_contact.substring(1);
             console.log(new_user_contact);
-            registrationSucessfulSmsNotification(new_user_contact);
+            registrationSucessfulSmsNotification(new_user_contact, new_user_firstname);
 
 
             JSON.stringify(res_obj);
