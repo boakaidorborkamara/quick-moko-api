@@ -170,6 +170,56 @@ let createOauth2Token = async ()=>{
 }
 
 
+// Implement creation of Oauth2Token for request of resources 
+let depositCash = async ()=>{
+    
+
+    let api_key = await createAPIkey();
+    let cutomized_base64_string = `${x_refrence_id}:${api_key}`
+
+
+    // make a post request to sandbox while providing all details needed for a sucessful request 
+    axios.post(`${baseUrl}/disbursement/v2_0/deposit`, {
+
+        "amount": "5",
+        "currency": "EURO",
+        "externalId": "45544G",
+        "payee": {
+          "partyIdType": "MSISDN",
+          "partyId": "0880526256"
+        },
+        "payerMessage": "QuickMoko is here for you",
+        "payeeNote": "QuickMoko gives quick cash"
+
+      },{
+        headers:{
+
+            "Authorization": "base64 string here",
+            "X-Reference-Id": x_refrence_id,
+            "X-Target-Environment":"quickmoko.com",
+            "Ocp-Apim-Subscription-Key": process.env.DISBURSEMENT_PRIMARY_KEY,
+            
+        }
+    })
+    .then(function (response) {
+        console.log(response);
+
+        // return 0 if reques was sucessful 
+        if(response.data){
+            return 0
+        }
+    })
+    .catch(function (error) {
+        console.log(error);
+        // return 1 if request wasn't sucessful 
+        return 1
+    });
+
+
+} 
+
+
+
 module.exports = {
     createAPIuser,
     validateAPIuser,
