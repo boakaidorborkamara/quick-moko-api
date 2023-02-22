@@ -11,7 +11,8 @@ let generateRegisteredUserPassword = async()=>{
         numbers: true
     });
 
-
+    console.log("GENERATED PASSWORD", generated_password);
+    
     // hash generated passwords 
     let hash_password = encryptGeneratedPassword(generated_password);
 
