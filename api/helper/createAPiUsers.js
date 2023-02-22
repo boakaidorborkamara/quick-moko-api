@@ -1,3 +1,4 @@
+require('dotenv').config();
 const axios = require('axios');
 const { v4: uuidv4 } = require('uuid');
 
@@ -15,7 +16,7 @@ let createAPIuser = async ()=>{
       },{
         headers:{
             "X-Reference-Id": x_refrence_id,
-            "Ocp-Apim-Subscription-Key": "9078543234db4189ab147b6cb62e3199",
+            "Ocp-Apim-Subscription-Key": process.env.DISBURSEMENT_PRIMARY_KEY,
             
         }
     })
@@ -46,7 +47,7 @@ let validateAPIuser = async ()=>{
       },{
         headers:{
 
-            "Ocp-Apim-Subscription-Key": "9078543234db4189ab147b6cb62e3199",
+            "Ocp-Apim-Subscription-Key": process.env.DISBURSEMENT_PRIMARY_KEY,
             
         }
     })
