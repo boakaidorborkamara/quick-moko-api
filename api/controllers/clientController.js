@@ -52,7 +52,7 @@ const client_create = async (req, res)=>{
             let new_user_contact = new_client_details.contact_number;
             let new_user_firstname = new_client_details.first_name;
             
-
+ 
             // format new user contact number 
             new_user_contact = new_user_contact.substring(1);
             console.log(new_user_contact);
@@ -104,11 +104,22 @@ const client_details = async (req, res)=>{
     // id for the client that detail you want to see 
     let client_id = req.params.id;
     console.log(client_id);
+    let res_obj= {}
      
+    // res.send({"msg": "Client details working"});
+
+
+    //get client details using the client id
+    let client_details = await db.findOne({
+        where: {NIN_number: client_id}
+    });
+
+    console.log("Client Details", client_details);
+
     
-    const client = await db.findByPk(client_id);
+    // const client = await db.findByPk(client_id);
     // check if id is invalid 
-    if (client === null) {
+    if (!client_details) {
 
         // modify res obj 
         res_obj.code = 1;
@@ -120,7 +131,7 @@ const client_details = async (req, res)=>{
         
         // modify res obj 
         res_obj.code = 0;
-        res_obj.message = client;
+        res_obj.message = client_details;
 
         res.status(200).send(JSON.stringify(res_obj));
     }

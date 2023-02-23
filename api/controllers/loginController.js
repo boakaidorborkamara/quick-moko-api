@@ -60,31 +60,12 @@ let logUserIn = async (req, res)=>{
                 
                 console.log(result);
 
-                // checks if result is true, mean the passwords are the same
+                // checks if result is true, means the passwords are the same
                 if(result) {
- 
-                    
-
-                    //configure and create a sign token
-                    console.log('configuring and creating a sign token');
-                    const maxAge = 3 * 60 * 60;
-                    const token =  jwt.sign(
-                        {  },
-                        jwtSecret,
-                        {
-                        expiresIn: maxAge, // 3hrs in sec
-                        }
-                    );
-
-                    // res.send({"msg":"User exist"});
-
-                    res.cookie("jwt", token, {
-                        httpOnly: true,
-                        maxAge: maxAge * 1000, // 3hrs in ms
-                    });
                     res.status(201).json({
                         code: 0,
-                        message: "User successfully Logged in"
+                        message: "User successfully Logged in",
+                        existing_user
                     });
                 } else {
                 //   res.status(400).json({code:1,  message: "Login not succesful" });

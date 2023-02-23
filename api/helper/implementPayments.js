@@ -122,30 +122,30 @@ let createAccessToken = async (user_api_key)=>{
 
         console.log("base64 string", base64_string);
         
-        // // make a post request to sandbox while providing all details needed for a sucessful request 
-        // axios.post(`${baseUrl}/v1_0/apiuser/${x_refrence_id}/apikey`, {
+        // make a post request to sandbox while providing all details needed for a sucessful request 
+        axios.post(`${baseUrl}/v1_0/apiuser/${x_refrence_id}/apikey`, {
             
-        //   },{
-        //     headers:{
+          },{
+            headers:{
 
-        //         "Authorization": cutomized_base64_string,
-        //         "Ocp-Apim-Subscription-Key": disbursement_primary_subscription_key,
+                "Authorization": base64_string,
+                "Ocp-Apim-Subscription-Key": disbursement_primary_subscription_key,
                 
-        //     }
-        // })
-        // .then(function (response) {
-        //     console.log(response);
+            }
+        })
+        .then(function (response) {
+            console.log(response);
 
-        //     // return 0 if reques was sucessful 
-        //     if(response.data){
-        //         return 0
-        //     }
-        // })
-        // .catch(function (error) {
-        //     console.log(error);
-        //     // return 1 if request wasn't sucessful 
-        //     return 1
-        // });
+            // return 0 if reques was sucessful 
+            if(response.data){
+                return 0
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+            // return 1 if request wasn't sucessful 
+            return 1
+        });
 
     }
     catch(err){
