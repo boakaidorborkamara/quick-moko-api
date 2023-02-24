@@ -20,12 +20,12 @@ const LoanTransaction = (sequelize)=>{
         allowNull: false
       },
       transaction_date: {
-        type: DataTypes.DATE,
-        defaultValue: Sequelize.NOW,
+        type: DataTypes.TEXT,
         allowNull: false
       },
       payback_status: {
-        type: DataTypes.STRING, 
+        type: DataTypes.STRING,
+        defaultValue: "Due Payment", 
         allowNull: false
       }, 
       due_date: {
