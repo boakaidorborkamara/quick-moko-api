@@ -7,7 +7,7 @@ const depositController = require('../controllers/depositController');
 
 
 //create new client on post
-router.get('/api/v1/deposit', depositController.handleDeposit);
+router.post('/api/v1/receive_loan', depositController.handleDeposit);
 
 
 module.exports = router;

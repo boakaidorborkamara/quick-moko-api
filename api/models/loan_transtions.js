@@ -11,19 +11,27 @@ const LoanTransaction = (sequelize)=>{
         primaryKey: true,
         allowNull: false
       },
-      date: {
+      loan_amount: {
+        type: DataTypes.STRING, 
+        allowNull: false
+      },
+      amount_to_payback: {
+        type: DataTypes.STRING, 
+        allowNull: false
+      },
+      transaction_date: {
         type: DataTypes.DATE,
         defaultValue: Sequelize.NOW,
         allowNull: false
       },
-      amount: {
+      payback_status: {
+        type: DataTypes.STRING, 
+        allowNull: false
+      }, 
+      due_date: {
         type: DataTypes.STRING, 
         allowNull: false
       },
-      purpose: {
-        type: DataTypes.STRING,
-        allowNull: false
-      }
     });
   
   }

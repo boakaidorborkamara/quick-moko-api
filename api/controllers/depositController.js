@@ -6,7 +6,7 @@ const handleDeposit = async (req, res)=>{
         // await validateAPIuser();
         let api_key = await tempGenerateAcessToken ();
         // console.log("api key in controller", api_key);
-        res.send({"message":"working"});
+        res.send({"message":"backend working"});
     }
     catch(err){
         console.log(err)
